@@ -1,11 +1,14 @@
 package com.fatihsenturk.socialapp.Acrivity;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.fatihsenturk.socialapp.Fragments.DashboardFragment;
 import com.fatihsenturk.socialapp.R;
 import com.fatihsenturk.socialapp.Utils.Helper;
 import com.mikepenz.materialdrawer.Drawer;
@@ -38,28 +41,28 @@ public class HomePageActivity extends AppCompatActivity {
                 .addDrawerItems(
                         new PrimaryDrawerItem()
                                 .withName(R.string.anasayfa_ihtiyacli)
-                                .withIdentifier(R.string.anasayfa)
+                                .withIdentifier(R.string.anasayfa_ihtiyacli)
                                 .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
                                 .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
                                 .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar)),
 
                         new PrimaryDrawerItem()
                                 .withName(R.string.isteklerim)
-                                .withIdentifier(R.string.anasayfa)
+                                .withIdentifier(R.string.anasayfa_ihtiyacli)
                                 .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
                                 .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
                                 .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar)),
 
                         new PrimaryDrawerItem()
                                 .withName(R.string.aldiklarim)
-                                .withIdentifier(R.string.anasayfa)
+                                .withIdentifier(R.string.anasayfa_ihtiyacli)
                                 .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
                                 .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
                                 .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar)),
 
                         new PrimaryDrawerItem()
                                 .withName(R.string.iletisim)
-                                .withIdentifier(R.string.anasayfa)
+                                .withIdentifier(R.string.anasayfa_ihtiyacli)
                                 .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
                                 .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
                                 .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
@@ -67,8 +70,15 @@ public class HomePageActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+                        final FragmentManager fragmentManagerForDrawerItem = getFragmentManager();
+                        final android.app.FragmentTransaction fragmentTransactionForDrawerItem = fragmentManagerForDrawerItem.beginTransaction();
                         switch (drawerItem.getIdentifier()){
                             case R.string.anasayfa_ihtiyacli:
+                                DashboardFragment dashboardFragment = new DashboardFragment();
+                                fragmentTransactionForDrawerItem.replace(R.id.frame_container, dashboardFragment);
+                                fragmentTransactionForDrawerItem.addToBackStack(null);
+                                fragmentTransactionForDrawerItem.commit();
 
                                 break;
                             case R.string.aldiklarim:

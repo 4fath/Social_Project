@@ -36,5 +36,4 @@
         android:layout_centerVertical="true"
         android:background="#ffffff" />
 
-
 </RelativeLayout>

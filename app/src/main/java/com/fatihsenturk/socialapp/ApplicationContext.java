@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 
+import com.fatihsenturk.socialapp.Model.AdminUser;
+import com.fatihsenturk.socialapp.Model.MyParseUser;
 import com.fatihsenturk.socialapp.Model.StuffModel;
 import com.fatihsenturk.socialapp.Utils.Helper;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -64,6 +66,9 @@ public class ApplicationContext extends Application {
                 .build();
 
         ParseObject.registerSubclass(StuffModel.class);
+        ParseObject.registerSubclass(AdminUser.class);
+        ParseObject.registerSubclass(MyParseUser.class);
+
         Parse.initialize(this, getString(R.string.parse_app_id), getString(R.string.parse_client_key));
 
         ParseUser.enableAutomaticUser();

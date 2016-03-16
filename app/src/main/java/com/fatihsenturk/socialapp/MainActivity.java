@@ -13,7 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import com.fatihsenturk.socialapp.Acrivity.HomePageActivity;
-import com.fatihsenturk.socialapp.Fragments.LoginFragment;
+import com.fatihsenturk.socialapp.Fragments.UserAuth.LoginFragment;
 import com.fatihsenturk.socialapp.Utils.Utils;
 import com.parse.ParseUser;
 

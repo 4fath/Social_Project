@@ -1,4 +1,4 @@
-package com.fatihsenturk.socialapp.Fragments;
+package com.fatihsenturk.socialapp.Fragments.UserAuth;
 
 import android.content.res.ColorStateList;
 import android.content.res.Resources;

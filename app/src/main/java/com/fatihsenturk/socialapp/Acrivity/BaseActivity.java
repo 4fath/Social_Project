@@ -1,4 +1,4 @@
-package com.fatihsenturk.socialapp;
+package com.fatihsenturk.socialapp.Acrivity;
 
 import android.app.Activity;
 

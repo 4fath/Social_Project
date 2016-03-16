@@ -1,4 +1,4 @@
-package com.fatihsenturk.socialapp;
+package com.fatihsenturk.socialapp.Utils;
 
 /**
  * Created by TOSHIBA on 15.3.2016. Mart

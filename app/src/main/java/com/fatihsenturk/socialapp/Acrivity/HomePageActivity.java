@@ -1,12 +1,13 @@
-package com.fatihsenturk.socialapp;
+package com.fatihsenturk.socialapp.Acrivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.fatihsenturk.socialapp.R;
+import com.fatihsenturk.socialapp.Utils.Helper;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;

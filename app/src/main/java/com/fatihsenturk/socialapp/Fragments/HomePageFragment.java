@@ -22,5 +22,4 @@ public class HomePageFragment extends BaseFragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-
 }

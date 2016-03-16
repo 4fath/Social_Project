@@ -14,12 +14,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.fatihsenturk.socialapp.CustomToast;
+import com.fatihsenturk.socialapp.Model.CustomToast;
 import com.fatihsenturk.socialapp.MainActivity;
 import com.fatihsenturk.socialapp.R;
-import com.fatihsenturk.socialapp.Utils;
+import com.fatihsenturk.socialapp.Utils.Utils;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;

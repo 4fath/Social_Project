@@ -1,4 +1,4 @@
-package com.fatihsenturk.socialapp;
+package com.fatihsenturk.socialapp.Model;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.fatihsenturk.socialapp.R;
 
 /**
  * Created by TOSHIBA on 15.3.2016. Mart

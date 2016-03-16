@@ -1,4 +1,4 @@
-package com.fatihsenturk.socialapp;
+package com.fatihsenturk.socialapp.Model;
 
 import com.parse.ParseUser;
 

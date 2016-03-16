@@ -1,7 +1,6 @@
 package com.fatihsenturk.socialapp.Fragments;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
@@ -23,11 +22,11 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.fatihsenturk.socialapp.CustomToast;
-import com.fatihsenturk.socialapp.HomePageActivity;
+import com.fatihsenturk.socialapp.Model.CustomToast;
+import com.fatihsenturk.socialapp.Acrivity.HomePageActivity;
 import com.fatihsenturk.socialapp.MainActivity;
 import com.fatihsenturk.socialapp.R;
-import com.fatihsenturk.socialapp.Utils;
+import com.fatihsenturk.socialapp.Utils.Utils;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;

@@ -1,4 +1,4 @@
-package com.fatihsenturk.socialapp;
+package com.fatihsenturk.socialapp.Utils;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -8,6 +8,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import com.fatihsenturk.socialapp.ApplicationContext;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

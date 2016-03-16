@@ -42,6 +42,8 @@ public class BaseFragment extends android.app.Fragment{
         super.onDestroy();
     }
 
+    // TODO:
+
     protected void setTitle(ActionBar actionBar, int resourceId){
         if(actionBar != null){
             View view = actionBar.getCustomView().findViewById(R.id.custom_header);

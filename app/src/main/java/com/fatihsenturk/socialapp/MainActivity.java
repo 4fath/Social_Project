@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("teamType", MODE_PRIVATE);
         String loginStatus = sharedPreferences.getString(Utils.Login_Status, null);
 
+        // TODO :
+
         if (loginStatus == null){
 
         }else {

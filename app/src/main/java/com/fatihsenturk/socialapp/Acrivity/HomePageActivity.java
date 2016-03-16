@@ -1,12 +1,16 @@
 package com.fatihsenturk.socialapp.Acrivity;
 
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.fatihsenturk.socialapp.Fragments.DashboardFragment;
 import com.fatihsenturk.socialapp.R;
@@ -30,8 +34,32 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.home_page_activity);
-//        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = layoutInflater.inflate(R.layout.custom_header, null);
+        ImageButton menu = (ImageButton) view.findViewById(R.id.menu_icon);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setCustomView(view);
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(true);
+
+            menu.setBackground(ContextCompat.getDrawable(this, R.drawable.menuicon));
+
+
+            menu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!leftMenuDrawer.isDrawerOpen()) {
+                        leftMenuDrawer.openDrawer();
+
+                    }
+                }
+        });
+            getSupportActionBar().show();
+        }
 
         leftMenuDrawer = new DrawerBuilder()
                 .withActivity(this)

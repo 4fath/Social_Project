@@ -128,8 +128,6 @@ public class Helper  {
      * @return string
      */
 
-    // TODO : remove context add format : define formats as constants
-
     public static String getDateString(Context context, Date date){
         if (date != null) {
             DateFormat df = new SimpleDateFormat("HH:mm", Locale.getDefault());

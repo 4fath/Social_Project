@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Social_Project</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="parse_app_id">f95OzzV3O5zoFkzGvoPJb697OkIZosMh1n917bw1</string>
+    <string name="parse_client_key">QHsiteunSXxxb4m4PMPOWAgPgAEnWBRcGGUQDsGi</string>
+    <string name="parse_rest_api_key">AdzrlBJqzr4DoULdhPePc6R2P6GETGKZKJLKcYud</string>
+
+    <string name="email">Email Id</string>
+    <string name="username">Username</string>
+    <string name="passowrd">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="show_pwd">Show Password</string>
+    <string name="hide_pwd">Hide Password</string>
+    <string name="forgot">Forgot password?</string>
+    <string name="closebutton">Close Button for Activity</string>
+    <string name="newUser">Not a Member yet? Sign Up here.</string>
+    <string name="fullName">Full Name</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="location">Location</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="terms_conditions">By clicking SignUp you agree all the Terms and Conditions.</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="already_user">Already have Account? Login here.</string>
+    <string name="registered_emailid">Please enter your Registered Email Id below:</string>
+    <string name="submit">SUBMIT</string>
+    <string name="back">BACK</string>
+
+    <string name="check_login_both_field">Lütfen iki alanıda doldurunuz !</string>
+
+    <string name="anasayfa_ihtiyacli">ANASAYFA</string>
+    <string name="isteklerim">İSTEKLERİM</string>                         //
+    <string name="aldiklarim">ALDIKLARIM</string>
+
+
+    <string name="anasayfa_gonullu">ANASAYFA</string>
+    <string name="esyalar"> VITRINDEKILER</string>
+    <string name="benim_esyalarim">VITRINE KOYDUKLARIM</string>
+    <string name="onay_bekleyenler">ONAY BEKLEYENLER</string>          //
+
+    <string name="anasayfa_admin"> ANASAYFA</string>
+    <string name="kullanici_onayla_gonullu"> GÖNÜLLÜ ONAYLA </string>
+    <string name="kullanici_onayla_ihtiyacli"> İHTİYAÇLI ONAYLA </string>
+    <string name="esya_onayla"> EŞYA ONAYLA </string>
+    <string name="eslesme_onayla"> İSTEK ONAYLA </string>
+    <string name="admin_ekle">ADMİN EKLE</string>
+
+    <string name="iletisim">İLETİŞİM</string>
+
+</resources>

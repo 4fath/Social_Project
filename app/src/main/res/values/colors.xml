@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="background_color">#006e96</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="white_greyish">#EEEEEE</color>
+    <color name="button_selectorcolor">#9E9E9E</color>
+
+    <color name="genre">#666666</color>
+    <color name="year">#ffffff</color>
+    <color name="list_divider">#d9d9d9</color>
+    <color name="list_row_start_color">#ff7043</color>
+    <color name="list_row_end_color">#ffffff</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+    <color name="sol_meu_backround">#d79800</color>
+    <color name="sol_menu_yazilar">#ffffff</color>
+    <color name="sol_menu_yazilar_withOpa">#99ffffff</color>
+    <color name="sol_menu_tiklainca">#8f6500</color>
+    <color name="sag_menu_backround">#a9172e</color>
+    <color name="sag_menu_tiklaninca">#770214</color>
+    <color name="player_bg">#a90533</color>
+    <color name="paleyr_bg_sari">#fb9c01</color>
+
+    <color name="com_type_text">#9da3ad</color>
+    <color name="veneu_text_color">#141823</color>
+    <color name="fixture_bg">#f2f2f2</color>
+    <color name="news_yellow_bg">#fbb001</color>
+    <color name="news_red_bg">#a90533</color>
+
+    <color name="gs_store_grey">#9da3ad</color>
+    <color name="storeitem_title">#141823</color>
+    <color name="store_item_satin_al">#a90533</color>
+
+    <color name="shadow_black">#010000</color>
+    <color name="test_color">#111111</color>
+    <color name="dashboard_bg">#f2f2f2</color>
+
+    <color name="team_name">#9da3ad</color>
+
+    <color name="news_detail_date_color">#80232323</color>
+    <color name="news_detail_title_color">#a90533</color>
+
+    <color name="player_detail_field_color">#171717</color>
+    <color name="player_detail_name_color">@color/gs_red</color>
+
+    <color name="saha_bg">#39ac73</color>
+
+    <color name="home_team_clicked">#a90533</color>
+    <color name="away_team_clicked">#9da3a3</color>
+
+    <!-- Main Colors -->
+    <color name="background_gray">#f2f2f2</color>
+    <color name="background_white">#ffffff</color>
+    <color name="background_dark_gray">#609da3a3</color>
+    <color name="gs_red">#a90533</color>
+    <color name="gs_yellow">#fbb001</color>
+    <color name="standings_text">#ffffff</color>
+    <color name="standings_text_black">#141823</color>
+
+
+
+
+</resources>

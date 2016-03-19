@@ -4,7 +4,6 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,9 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.fatihsenturk.socialapp.ApplicationContext;
+import com.fatihsenturk.socialapp.Fragments.ContactFragment;
 import com.fatihsenturk.socialapp.Fragments.DashboardFragment;
+import com.fatihsenturk.socialapp.Fragments.MyItemsFragment;
+import com.fatihsenturk.socialapp.Fragments.MyRequestFragment;
 import com.fatihsenturk.socialapp.R;
 import com.fatihsenturk.socialapp.Utils.Helper;
+import com.fatihsenturk.socialapp.Utils.Utils;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
@@ -61,69 +65,114 @@ public class HomePageActivity extends AppCompatActivity {
             getSupportActionBar().show();
         }
 
-        leftMenuDrawer = new DrawerBuilder()
-                .withActivity(this)
-                .withHeader(R.layout.material_drawer_header)
-                .withSelectedItem(defaultSelectedLeftItem)
-                .withSelectedItemByPosition(defaultSelectedLeftItem)
-                .addDrawerItems(
-                        new PrimaryDrawerItem()
-                                .withName(R.string.anasayfa_ihtiyacli)
-                                .withIdentifier(R.string.anasayfa_ihtiyacli)
-                                .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
-                                .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
-                                .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar)),
+//
+//        populateLeftMenu(leftMenuDrawer);
 
-                        new PrimaryDrawerItem()
-                                .withName(R.string.isteklerim)
-                                .withIdentifier(R.string.anasayfa_ihtiyacli)
-                                .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
-                                .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
-                                .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar)),
+        Boolean isAdmin = ApplicationContext.loggedInUser.getBoolean("isAdmin");
+        String userStatus = ApplicationContext.loggedInUser.getString("userStatus");
 
-                        new PrimaryDrawerItem()
-                                .withName(R.string.aldiklarim)
-                                .withIdentifier(R.string.anasayfa_ihtiyacli)
-                                .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
-                                .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
-                                .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar)),
+        if (isAdmin){
 
-                        new PrimaryDrawerItem()
-                                .withName(R.string.iletisim)
-                                .withIdentifier(R.string.anasayfa_ihtiyacli)
-                                .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
-                                .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
-                                .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
-                )
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+        }else if (userStatus.equalsIgnoreCase(Utils.gonulluUser)){
 
-                        final FragmentManager fragmentManagerForDrawerItem = getFragmentManager();
-                        final android.app.FragmentTransaction fragmentTransactionForDrawerItem = fragmentManagerForDrawerItem.beginTransaction();
-                        switch (drawerItem.getIdentifier()){
-                            case R.string.anasayfa_ihtiyacli:
-                                DashboardFragment dashboardFragment = new DashboardFragment();
-                                fragmentTransactionForDrawerItem.replace(R.id.frame_container, dashboardFragment);
-                                fragmentTransactionForDrawerItem.addToBackStack(null);
-                                fragmentTransactionForDrawerItem.commit();
+        }else if (userStatus.equalsIgnoreCase(Utils.ihtiyacliUeer)){
 
-                                break;
-                            case R.string.aldiklarim:
+            leftMenuDrawer = new DrawerBuilder()
+                    .withActivity(this)
+                    .withHeader(R.layout.material_drawer_header)
+                    .withSelectedItem(defaultSelectedLeftItem)
+                    .withSelectedItemByPosition(defaultSelectedLeftItem)
+                    .addDrawerItems(
+                            new PrimaryDrawerItem()
+                                    .withName(R.string.anasayfa_ihtiyacli)
+                                    .withIdentifier(R.string.anasayfa_ihtiyacli)
+                                    .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
+                                    .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
+                                    .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar)),
 
-                                break;
-                            case R.string.iletisim:
+                            new PrimaryDrawerItem()
+                                    .withName(R.string.isteklerim)
+                                    .withIdentifier(R.string.anasayfa_ihtiyacli)
+                                    .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
+                                    .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
+                                    .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar)),
 
-                                break;
-                            case R.string.isteklerim:
+                            new PrimaryDrawerItem()
+                                    .withName(R.string.aldiklarim)
+                                    .withIdentifier(R.string.anasayfa_ihtiyacli)
+                                    .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
+                                    .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
+                                    .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar)),
 
-                                break;
+                            new PrimaryDrawerItem()
+                                    .withName(R.string.iletisim)
+                                    .withIdentifier(R.string.anasayfa_ihtiyacli)
+                                    .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
+                                    .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
+                                    .withTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
+                    )
+                    .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                        @Override
+                        public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+                            final FragmentManager fragmentManagerForDrawerItem = getFragmentManager();
+                            final android.app.FragmentTransaction fragmentTransactionForDrawerItem = fragmentManagerForDrawerItem.beginTransaction();
+                            switch (drawerItem.getIdentifier()){
+
+                                case R.string.anasayfa_ihtiyacli:
+                                    DashboardFragment dashboardFragment = new DashboardFragment();
+                                    fragmentTransactionForDrawerItem.replace(R.id.frame_container, dashboardFragment);
+                                    fragmentTransactionForDrawerItem.addToBackStack(null);
+                                    fragmentTransactionForDrawerItem.commit();
+                                    break;
+                                case R.string.aldiklarim:
+                                    MyItemsFragment myItemsFragment = new MyItemsFragment();
+                                    fragmentTransactionForDrawerItem.replace(R.id.frame_container, myItemsFragment);
+                                    fragmentTransactionForDrawerItem.addToBackStack(null);
+                                    fragmentTransactionForDrawerItem.commit();
+                                    break;
+                                case R.string.isteklerim:
+                                    MyRequestFragment myRequestFragment = new MyRequestFragment();
+                                    fragmentTransactionForDrawerItem.replace(R.id.frame_container, myRequestFragment);
+                                    fragmentTransactionForDrawerItem.addToBackStack(null);
+                                    fragmentTransactionForDrawerItem.commit();
+                                    break;
+                                case R.string.iletisim:
+                                    ContactFragment contactFragment = new ContactFragment();
+                                    fragmentTransactionForDrawerItem.replace(R.id.frame_container, contactFragment);
+                                    fragmentTransactionForDrawerItem.addToBackStack(null);
+                                    fragmentTransactionForDrawerItem.commit();
+                                    break;
+                            }
+                            return false;
                         }
+                    })
+                    .build();
 
-                        return false;
-                    }
-                })
-                .build();
+
+        }
+
+
+
+    }
+
+    private void populateLeftMenu(Drawer leftMenuDrawer) {
+        Boolean isAdmin = ApplicationContext.loggedInUser.getBoolean("isAdmin");
+        String userStatus = ApplicationContext.loggedInUser.getString("userStatus");
+
+        if (isAdmin){
+            //populate left menu for admin
+        }else if (userStatus.equals("volunteer")){
+            //populate left menu for volunteer
+        }else {
+            //populate left menu for the other users
+
+
+
+
+
+        }
+
 
     }
 

@@ -36,7 +36,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
     private static EditText fullName, username, emailId, mobileNumber, password, confirmPassword;
     private static TextView login;
     private static Button signUpButton;
-    private static CheckBox terms_conditions;
+    private static CheckBox terms_conditions, userType ;
 
     public SignUpFragment(){
 
@@ -62,6 +62,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
         signUpButton = (Button) view.findViewById(R.id.signUpBtn);
         login = (TextView) view.findViewById(R.id.already_user);
         terms_conditions = (CheckBox) view.findViewById(R.id.terms_conditions);
+        userType = (CheckBox) view.findViewById(R.id.user_type);
 
 
         Resources res = getResources();
@@ -120,12 +121,13 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
         else if (!terms_conditions.isChecked())
             new CustomToast().Show_Toast(getActivity(), view, "Please select Terms and Conditions.");
         else {
-            signUpToParse(getFullName, getUsername, getEmailId, getMobileNumber, getPassword);
+            Boolean userTypee = userType.isChecked();
+            signUpToParse(getFullName, getUsername, getEmailId, getMobileNumber, getPassword, userTypee);
         }
 
     }
 
-    private void signUpToParse(String getFullName, String getUsername, String getEmailId, String getMobileNumber, String getPassword) {
+    private void signUpToParse(String getFullName, String getUsername, String getEmailId, String getMobileNumber, String getPassword, Boolean userTypee) {
         ParseUser currentUser = new ParseUser();
 
         // Required fields
@@ -139,14 +141,20 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
         currentUser.add("isAdmin", false);
         currentUser.add("isVolunteer", false);
 
+        if (userTypee){
+            currentUser.add(Utils.userStatus, Utils.gonulluUser);
+        }else {
+            currentUser.add(Utils.userStatus, Utils.ihtiyacliUeer);
+        }
+
         final ProgressDialog progressDialog = ProgressDialog.show(getActivity(),"Lütfen Bekleyiniz !","Giriş Yapılıyor.." );
         currentUser.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
                 progressDialog.dismiss();
-                if (e != null){
-                    new CustomToast().Show_Toast(getActivity(),view,e.getMessage());
-                }else {
+                if (e != null) {
+                    new CustomToast().Show_Toast(getActivity(), view, e.getMessage());
+                } else {
                     // success
                     new CustomToast().Show_Toast(getContext(), view, "Başarılı bir şekilde kayıt oldunuz !");
                     MainActivity.replaceLoginFragment();

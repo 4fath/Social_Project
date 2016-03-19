@@ -25,6 +25,7 @@
     <string name="registered_emailid">Please enter your Registered Email Id below:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
+    <string name="user_type"> By clicking you agree SignUp for as Volunteer </string>
 
     <string name="check_login_both_field">Lütfen iki alanıda doldurunuz !</string>
 

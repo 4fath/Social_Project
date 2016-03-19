@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.fatihsenturk.socialapp.ApplicationContext;
 import com.fatihsenturk.socialapp.Model.CustomToast;
 import com.fatihsenturk.socialapp.Acrivity.HomePageActivity;
 import com.fatihsenturk.socialapp.MainActivity;
@@ -161,6 +162,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 //                    }else {
 //                        ParseUser.logOut();
 //                    }
+
+
+
+                    ApplicationContext.userStatus = parseUser.getString("userType");
+                    ApplicationContext.loggedInUser = parseUser;
 
                     MainActivity.editSharedPreference(true);
                     Intent goToHomePage = new Intent(getActivity(), HomePageActivity.class);

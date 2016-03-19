@@ -29,6 +29,9 @@ public class ApplicationContext extends Application {
     public static DisplayImageOptions options;
     private static ApplicationContext mInstance;
 
+    public static String userStatus;
+    public static ParseUser loggedInUser ;
+
     public static synchronized ApplicationContext getInstance() {
         return mInstance;
     }

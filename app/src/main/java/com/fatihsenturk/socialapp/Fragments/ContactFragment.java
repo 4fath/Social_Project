@@ -1,7 +1,6 @@
 package com.fatihsenturk.socialapp.Fragments;
 
 import com.fatihsenturk.socialapp.Adapter.ContactAdapter;
-import com.fatihsenturk.socialapp.Adapter.MyItemAdapter;
 
 import java.util.List;
 

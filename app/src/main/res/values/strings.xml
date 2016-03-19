@@ -29,22 +29,28 @@
 
     <string name="check_login_both_field">Lütfen iki alanıda doldurunuz !</string>
 
-    <string name="anasayfa_ihtiyacli">ANASAYFA</string>
-    <string name="isteklerim">İSTEKLERİM</string>                         //
-    <string name="aldiklarim">ALDIKLARIM</string>
+    // poor icin 4 sayfa olucak
 
+    <string name="anasayfa_ihtiyacli">ANASAYFA</string>
+    <string name="isteklerim">İSTEKLERİM</string>                         // MyRequest
+    <string name="aldiklarim">ALDIKLARIM</string>                         // MyItems
+
+
+    // gonullu icin 5 sayfa olucak
 
     <string name="anasayfa_gonullu">ANASAYFA</string>
-    <string name="esyalar"> VITRINDEKILER</string>
-    <string name="benim_esyalarim">VITRINE KOYDUKLARIM</string>
-    <string name="onay_bekleyenler">ONAY BEKLEYENLER</string>          //
+    <string name="esyalar"> VITRINDEKILER</string>                       // AllItems
+    <string name="benim_esyalarim">VITRINE KOYDUKLARIM</string>          // MyStuffs
+    <string name="onay_bekleyenler">ONAY BEKLEYENLER</string>            // WaitingAllow
+
+    admin icin 7 sayfa olucak
 
     <string name="anasayfa_admin"> ANASAYFA</string>
-    <string name="kullanici_onayla_gonullu"> GÖNÜLLÜ ONAYLA </string>
-    <string name="kullanici_onayla_ihtiyacli"> İHTİYAÇLI ONAYLA </string>
-    <string name="esya_onayla"> EŞYA ONAYLA </string>
-    <string name="eslesme_onayla"> İSTEK ONAYLA </string>
-    <string name="admin_ekle">ADMİN EKLE</string>
+    <string name="kullanici_onayla_gonullu"> GÖNÜLLÜ ONAYLA </string>           // ApproveVolunteer
+    <string name="kullanici_onayla_ihtiyacli"> İHTİYAÇLI ONAYLA </string>       // ApproveNormalUser
+    <string name="esya_onayla"> EŞYA ONAYLA </string>                           // ApproveStuff
+    <string name="eslesme_onayla"> İSTEK ONAYLA </string>                       // ApproveMatchREquest
+    <string name="admin_ekle">ADMİN EKLE</string>                               // AddAdmin
 
     <string name="iletisim">İLETİŞİM</string>
 

@@ -1,7 +1,7 @@
-package com.fatihsenturk.socialapp.Fragments;
+package com.fatihsenturk.socialapp.Fragments.NormalUser;
 
-import com.fatihsenturk.socialapp.Adapter.DashboardAdapter;
-import com.fatihsenturk.socialapp.Adapter.MyItemAdapter;
+import com.fatihsenturk.socialapp.Adapter.NormalUser.MyItemAdapter;
+import com.fatihsenturk.socialapp.Fragments.BaseFragment;
 
 import java.util.List;
 

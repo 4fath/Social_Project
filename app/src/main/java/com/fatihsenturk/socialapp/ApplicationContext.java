@@ -69,8 +69,10 @@ public class ApplicationContext extends Application {
                 .build();
 
         ParseObject.registerSubclass(StuffModel.class);
-        ParseObject.registerSubclass(AdminUser.class);
-        ParseObject.registerSubclass(MyParseUser.class);
+
+        //Not necessary anymore
+//        ParseObject.registerSubclass(AdminUser.class);
+//        ParseObject.registerSubclass(MyParseUser.class);
 
         Parse.initialize(this, getString(R.string.parse_app_id), getString(R.string.parse_client_key));
 

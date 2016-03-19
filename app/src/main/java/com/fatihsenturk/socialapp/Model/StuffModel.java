@@ -22,7 +22,7 @@ public class StuffModel extends ParseObject {
     private Date startDate;                         // ilanin koyuldugu tarih
     private Boolean allowStatus;                    // allowed or not by admin
     private Boolean currentState;                   // kimse tarafindan alinmis mi alinmamis mi ?
-    private ArrayList<ParseFile> stufPhotos;        // fotograflari
+    private ArrayList<ParseFile> stufPhotos;        // varsa fotograflari
     private ArrayList<ParseUser> requestQueue;      // bu urune istek yollayan kisiler
 
     public StuffModel(String name, ArrayList<String> tags, String description, ParseUser owner,

@@ -9,6 +9,10 @@ import android.widget.BaseAdapter;
  * Dont worry !
  */
 public class WaitnigAllowAdapter extends BaseAdapter {
+
+
+
+
     @Override
     public int getCount() {
         return 0;

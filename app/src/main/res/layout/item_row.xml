@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="120dp"
@@ -20,15 +21,16 @@
             android:id="@+id/news_row_photo"
             android:layout_width="0dp"
             android:layout_height="120dp"
-            android:layout_weight="0.4"
+            android:layout_weight="0.5"
+            android:contentDescription="description_of_imageView"
             android:scaleType="centerCrop"
-            android:src="@drawable/member_placeholder"/>
+            android:src="@drawable/member_placeholder" />
 
         <LinearLayout
             android:id="@+id/news_row_layout"
             android:layout_width="0dp"
             android:layout_height="120dp"
-            android:layout_weight="0.6"
+            android:layout_weight="0.5"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
@@ -37,15 +39,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="13dp"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="2dp">
-
+                android:layout_marginTop="20dp">
                 <TextView
                     android:id="@+id/news_row_date"
                     android:layout_width="wrap_content"
                     android:layout_height="12dp"
                     android:tag="text_regular_font"
                     android:text="11.03.2015"
-                    android:textColor="@android:color/background_dark"
+                    android:textColor="@color/year"
                     android:textSize="10sp" />
 
             </LinearLayout>
@@ -53,36 +54,12 @@
             <!-- News Title -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="15dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="9.5dp">
-
                 <TextView
                     android:id="@+id/news_row_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="sans-serif-light"
-                    android:maxLines="3"
-                    android:tag="text_light_font"
-                    android:text="news title"
-                    android:textColor="lorem ipsum lorem ipsum lorem ipsum"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-
-            </LinearLayout>
-
-
-            <!-- News Title -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="9.5dp">
-                <TextView
-                    android:id="@+id/news_row_description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif-light"
@@ -92,7 +69,8 @@
                     android:textColor="@color/sol_menu_yazilar"
                     android:textSize="14sp"
                     android:textStyle="bold" />
-                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>

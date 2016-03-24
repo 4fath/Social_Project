@@ -63,7 +63,8 @@
     <color name="standings_text">#ffffff</color>
     <color name="standings_text_black">#141823</color>
 
-
+    <color name="item_color_1">#11bf0b</color>
+    <color name="item_color_2">#0b76e1</color>
 
 
 </resources>

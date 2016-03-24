@@ -27,6 +27,8 @@ public class StuffModel extends ParseObject {
 
     public StuffModel(String name, ArrayList<String> tags, String description, ParseUser owner,
                       Date startDate, Boolean allowStatus, Boolean currentState, ArrayList<ParseFile> stufPhotos) {
+        super();
+
         this.name = name;
         this.tags = tags;
         this.description = description;
@@ -37,7 +39,8 @@ public class StuffModel extends ParseObject {
         this.stufPhotos = stufPhotos;
     }
 
-    public StuffModel() {
+    public StuffModel(){
+
     }
 
     public ArrayList<ParseUser> getRequestQueue() {
@@ -63,11 +66,11 @@ public class StuffModel extends ParseObject {
     }
 
     public String getName() {
-        return name;
+        return getString("name");
     }
 
     public void setName(String name) {
-        this.name = name;
+       put("name", name);
     }
 
     public ArrayList<String> getTags() {

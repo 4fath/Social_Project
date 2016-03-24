@@ -36,27 +36,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmentManager = getSupportFragmentManager();
-
-        sharedPreferences = getSharedPreferences("teamType", MODE_PRIVATE);
-        String loginStatus = sharedPreferences.getString(Utils.Login_Status, null);
+//
+//        sharedPreferences = getSharedPreferences("teamType", MODE_PRIVATE);
+//        String loginStatus = sharedPreferences.getString(Utils.Login_Status, null);
 
         // TODO :
 
-        if (loginStatus == null){
-
-        }else {
-
-        }
+//        if (loginStatus == null){
+//
+//        }else {
+//
+//        }
 
 
         ParseUser currentUser = ParseUser.getCurrentUser();
-        String test = currentUser.getUsername();
+        if (currentUser !=  null){
+            currentUser.logOut();
+        }
+        String test = null;
+
 
         if (test == null){
             if (savedInstanceState == null){
-                fragmentManager.
-                        beginTransaction().
-                        replace(R.id.frameContainer, new LoginFragment(), Utils.Login_Fragment).
+                fragmentManager.beginTransaction().replace(R.id.frameContainer, new LoginFragment(), Utils.Login_Fragment).
                         commit();
             }
         }else {

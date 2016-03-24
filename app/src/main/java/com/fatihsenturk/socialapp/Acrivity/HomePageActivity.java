@@ -29,8 +29,11 @@ import com.fatihsenturk.socialapp.Utils.Helper;
 import com.fatihsenturk.socialapp.Utils.Utils;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.holder.StringHolder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+import java.nio.BufferOverflowException;
 
 /**
  * Created by TOSHIBA on 15.3.2016. Mart
@@ -46,8 +49,8 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.home_page_activity);
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.custom_header, null);
@@ -76,8 +79,12 @@ public class HomePageActivity extends AppCompatActivity {
 //
 //        populateLeftMenu(leftMenuDrawer);
 
-        Boolean isAdmin = ApplicationContext.loggedInUser.getBoolean("isAdmin");
-        String userStatus = ApplicationContext.loggedInUser.getString("userStatus");
+//        Boolean isAdmin = ApplicationContext.loggedInUser.getBoolean("isAdmin");
+//        String userStatus = ApplicationContext.loggedInUser.getString("userStatus");
+        Boolean isAdmin = false;
+        String userStatus =Utils.gonulluUser;
+
+
 
         if (isAdmin){
 
@@ -86,6 +93,8 @@ public class HomePageActivity extends AppCompatActivity {
                     .withHeader(R.layout.material_drawer_header)
                     .withSelectedItem(defaultSelectedLeftItem)
                     .withSelectedItemByPosition(defaultSelectedLeftItem)
+                    .withSliderBackgroundColorRes(R.color.sol_meu_backround)
+                    .withSliderBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.list_row_start_color))
                     .addDrawerItems(
                             new PrimaryDrawerItem()
                                     .withName(R.string.anasayfa_admin)
@@ -200,10 +209,14 @@ public class HomePageActivity extends AppCompatActivity {
                     .withActivity(this)
                     .withHeader(R.layout.material_drawer_header)
                     .withSelectedItem(defaultSelectedLeftItem)
+
+                    .withSelectedItemByPosition(defaultSelectedLeftItem)
+                    .withSliderBackgroundColorRes(R.color.sol_meu_backround)
                     .withSelectedItemByPosition(defaultSelectedLeftItem)
                     .addDrawerItems(
                             new PrimaryDrawerItem()
                                     .withName(R.string.anasayfa_gonullu)
+                                    .withBadge(new StringHolder("2"))
                                     .withIdentifier(R.string.anasayfa_gonullu)
                                     .withSelectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.sol_menu_yazilar))
                                     .withSelectedColorRes(R.color.sag_menu_tiklaninca).withTypeface(Helper.textHeavyFont)
@@ -290,6 +303,8 @@ public class HomePageActivity extends AppCompatActivity {
                     .withHeader(R.layout.material_drawer_header)
                     .withSelectedItem(defaultSelectedLeftItem)
                     .withSelectedItemByPosition(defaultSelectedLeftItem)
+                    .withSliderBackgroundColorRes(R.color.sol_meu_backround)
+                    .withSelectedItemByPosition(defaultSelectedLeftItem)
                     .addDrawerItems(
                             new PrimaryDrawerItem()
                                     .withName(R.string.anasayfa_ihtiyacli)
@@ -356,6 +371,8 @@ public class HomePageActivity extends AppCompatActivity {
                         }
                     })
                     .build();
+
+            leftMenuDrawer.updateBadge(R.string.anasayfa_gonullu, new StringHolder("12"));
         }
     }
 

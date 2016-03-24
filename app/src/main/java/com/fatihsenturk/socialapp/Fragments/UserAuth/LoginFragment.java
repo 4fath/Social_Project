@@ -167,8 +167,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
                     ApplicationContext.userStatus = parseUser.getString("userType");
                     ApplicationContext.loggedInUser = parseUser;
-
-                    MainActivity.editSharedPreference(true);
+//
+//                    MainActivity.editSharedPreference(true);
                     Intent goToHomePage = new Intent(getActivity(), HomePageActivity.class);
                     startActivity(goToHomePage);
 

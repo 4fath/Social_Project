@@ -8,6 +8,7 @@ import com.fatihsenturk.socialapp.Model.AdminUser;
 import com.fatihsenturk.socialapp.Model.MyParseUser;
 import com.fatihsenturk.socialapp.Model.StuffModel;
 import com.fatihsenturk.socialapp.Utils.Helper;
+import com.fatihsenturk.socialapp.Utils.Utils;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -30,7 +31,11 @@ public class ApplicationContext extends Application {
     private static ApplicationContext mInstance;
 
     public static String userStatus;
-    public static ParseUser loggedInUser ;
+    public static ParseUser loggedInUser = null ;
+
+    // Default
+    public static Boolean isAdmin = false;
+    public static String userType = Utils.ihtiyacliUeer;
 
     public static synchronized ApplicationContext getInstance() {
         return mInstance;
@@ -76,7 +81,7 @@ public class ApplicationContext extends Application {
 
         Parse.initialize(this, getString(R.string.parse_app_id), getString(R.string.parse_client_key));
 
-        ParseUser.enableAutomaticUser();
+//      ParseUser.enableAutomaticUser();
         ParseUser.enableRevocableSessionInBackground();
 
         ParseACL defaultACL = new ParseACL();

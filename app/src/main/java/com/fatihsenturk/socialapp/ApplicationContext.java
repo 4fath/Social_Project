@@ -30,12 +30,12 @@ public class ApplicationContext extends Application {
     public static DisplayImageOptions options;
     private static ApplicationContext mInstance;
 
-    public static String userStatus;
-    public static ParseUser loggedInUser = null ;
+//    public static String userStatus = Utils.ihtiyacliUeer;
+    public static ParseUser loggedInUser = null;
 
     // Default
     public static Boolean isAdmin = false;
-    public static String userType = Utils.ihtiyacliUeer;
+    public static Boolean userType ;
 
     public static synchronized ApplicationContext getInstance() {
         return mInstance;
@@ -75,13 +75,8 @@ public class ApplicationContext extends Application {
 
         ParseObject.registerSubclass(StuffModel.class);
 
-        //Not necessary anymore
-//        ParseObject.registerSubclass(AdminUser.class);
-//        ParseObject.registerSubclass(MyParseUser.class);
-
         Parse.initialize(this, getString(R.string.parse_app_id), getString(R.string.parse_client_key));
 
-//      ParseUser.enableAutomaticUser();
         ParseUser.enableRevocableSessionInBackground();
 
         ParseACL defaultACL = new ParseACL();

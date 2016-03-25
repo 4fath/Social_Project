@@ -36,12 +36,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="13dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="2dp">
+                android:layout_marginLeft="12dp">
 
                 <TextView
                     android:id="@+id/news_row_date"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="left"
+                    android:gravity="left"
                     android:layout_height="12dp"
                     android:tag="text_regular_font"
                     android:text="11.03.2015"
@@ -54,7 +55,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="9.5dp">
 
@@ -63,13 +63,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif-light"
-                    android:maxLines="3"
+                    android:maxLines="1"
                     android:tag="text_light_font"
                     android:text="news title"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     android:textStyle="bold" />
-
 
             </LinearLayout>
 
@@ -90,7 +89,7 @@
                     android:tag="text_light_font"
                     android:text="news title"
                     android:textColor="@color/sol_menu_yazilar"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
                 </LinearLayout>
 

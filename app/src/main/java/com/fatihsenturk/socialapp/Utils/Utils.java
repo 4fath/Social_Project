@@ -22,4 +22,7 @@ public class Utils {
     public static final String ForgotPassword_Fragment = "ForgotPasswordFragment";
 
     public static final String Login_Status = "Login_Status";
+
+
+    public static final String SendBroadcat = "SEND_BROADCAST";
 }

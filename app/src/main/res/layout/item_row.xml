@@ -4,7 +4,7 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:background="@color/background_gray"
+    android:background="@color/md_yellow_600"
     android:orientation="horizontal"
     android:weightSum="1">
 
@@ -32,7 +32,8 @@
             android:layout_height="120dp"
             android:layout_weight="0.5"
             android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/md_yellow_500">
 
             <!-- Date -->
             <LinearLayout

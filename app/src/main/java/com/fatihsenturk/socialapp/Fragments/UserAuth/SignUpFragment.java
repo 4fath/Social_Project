@@ -127,7 +127,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    private void signUpToParse(String getFullName, String getUsername, String getEmailId, String getMobileNumber, String getPassword, Boolean userTypee) {
+    private void signUpToParse(String getFullName, String getUsername, String getEmailId, String getMobileNumber, String getPassword, Boolean userType) {
         ParseUser currentUser = new ParseUser();
 
         // Required fields
@@ -139,15 +139,19 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
         currentUser.add("fullName",getFullName);
         currentUser.add("phoneNumber", getMobileNumber);
         currentUser.add("isAdmin", false);
-        currentUser.add("isVolunteer", false);
-
-        if (userTypee){
-            currentUser.add(Utils.userStatus, Utils.gonulluUser);
-        }else {
-            currentUser.add(Utils.userStatus, Utils.ihtiyacliUeer);
+        if (userType){
+            currentUser.add("isVolunteer", "yes");
+        }else{
+            currentUser.add("isVolunteer", "no");
         }
 
-        final ProgressDialog progressDialog = ProgressDialog.show(getActivity(),"Lütfen Bekleyiniz !","Giriş Yapılıyor.." );
+//        if (userType){
+//            currentUser.put(Utils.userStatus, Utils.gonulluUser);
+//        }else {
+//            currentUser.put(Utils.userStatus, Utils.ihtiyacliUeer);
+//        }
+
+        final ProgressDialog progressDialog = ProgressDialog.show(getActivity(),"Lütfen Bekleyiniz!","Kayit işlemi devam ediyor");
         currentUser.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
@@ -155,7 +159,6 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
                 if (e != null) {
                     new CustomToast().Show_Toast(getActivity(), view, e.getMessage());
                 } else {
-                    // success
                     new CustomToast().Show_Toast(getContext(), view, "Başarılı bir şekilde kayıt oldunuz !");
                     MainActivity.replaceLoginFragment();
                 }

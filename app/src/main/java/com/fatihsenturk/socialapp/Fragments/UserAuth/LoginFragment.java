@@ -151,8 +151,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         ParseUser.logInInBackground(getUsername, getPassword, new LogInCallback() {
             @Override
             public void done(ParseUser parseUser, ParseException e) {
-                if (parseUser != null ){
-
+                if (e == null ){
+                    // Yani basarili bir sekilde giris yapildi
 
 //                  This part for emaial verification , succesfull login
 //                    Boolean isVerified = parseUser.getBoolean("emailVerified");
@@ -163,15 +163,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 //                        ParseUser.logOut();
 //                    }
 
-
-
-                    ApplicationContext.userStatus = parseUser.getString("userType");
+                    ApplicationContext.userType = parseUser.getBoolean("isVolunteer");
+                    ApplicationContext.isAdmin = parseUser.getBoolean("isAdmin");
                     ApplicationContext.loggedInUser = parseUser;
 //
-//                    MainActivity.editSharedPreference(true);
                     Intent goToHomePage = new Intent(getActivity(), HomePageActivity.class);
                     startActivity(goToHomePage);
-
                 }else {
                     new CustomToast().Show_Toast(getContext(), view, e.getMessage());
                 }

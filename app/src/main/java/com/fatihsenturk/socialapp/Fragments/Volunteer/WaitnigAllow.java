@@ -1,6 +1,11 @@
 package com.fatihsenturk.socialapp.Fragments.Volunteer;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
@@ -15,6 +20,7 @@ import com.fatihsenturk.socialapp.Adapter.Volunteer.WaitnigAllowAdapter;
 import com.fatihsenturk.socialapp.Fragments.BaseFragment;
 import com.fatihsenturk.socialapp.Model.StuffModel;
 import com.fatihsenturk.socialapp.R;
+import com.fatihsenturk.socialapp.Utils.Utils;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -29,10 +35,25 @@ import java.util.List;
  */
 public class WaitnigAllow extends BaseFragment {
 
-    private List waitinAllowList;
+    private List<StuffModel> waitinAllowList;
     private WaitnigAllowAdapter waitnigAllowAdapter;
     private String currentUsername;
+    private ItemReceiver ıtemReceiver;
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ıtemReceiver = new ItemReceiver();
+        getActivity().registerReceiver(ıtemReceiver, new IntentFilter(Utils.SendBroadcat));
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+       getActivity().unregisterReceiver(ıtemReceiver);
+    }
 
     @Nullable
     @Override
@@ -40,7 +61,7 @@ public class WaitnigAllow extends BaseFragment {
 
 
         View mainView = inflater.inflate(R.layout.item_list, container, false);
-        ListView listView = (ListView) mainView.findViewById(R.id.item_list);
+        final ListView listView = (ListView) mainView.findViewById(R.id.item_list);
         FloatingActionButton floatingActionButton = (FloatingActionButton) mainView.findViewById(R.id.add_item_button);
 
         ParseQuery<StuffModel> stuffModelParseQuery = new ParseQuery<StuffModel>(StuffModel.class);
@@ -57,9 +78,12 @@ public class WaitnigAllow extends BaseFragment {
             public void done(List<StuffModel> list, ParseException e) {
                 if (e == null) {
                     waitinAllowList = list;
-                   String listSize = String.valueOf(list.size()) ;
+                    String listSize = String.valueOf(list.size()) ;
                     Toast.makeText(getActivity(), "CalBack sonucu geldi", Toast.LENGTH_LONG).show();
                     Toast.makeText(getActivity(), "list size : "+ listSize,Toast.LENGTH_LONG).show();
+                    waitnigAllowAdapter = new WaitnigAllowAdapter(getActivity(),list);
+                    listView.setAdapter(waitnigAllowAdapter);
+                    waitnigAllowAdapter.notifyDataSetChanged();
                 }
             }
         });
@@ -69,7 +93,6 @@ public class WaitnigAllow extends BaseFragment {
 //            waitnigAllowAdapter = new WaitnigAllowAdapter(getActivity(),null);
 //        }else {
 //            waitnigAllowAdapter = new WaitnigAllowAdapter(getActivity(), waitinAllowList);
-//
 //        }
 
         listView.setAdapter(waitnigAllowAdapter);
@@ -100,6 +123,28 @@ public class WaitnigAllow extends BaseFragment {
                 });
             }
         });
+
+
         return mainView;
+    }
+
+    public class ItemReceiver extends BroadcastReceiver {
+        private final Handler handler;
+
+        public ItemReceiver() {
+            this.handler = new Handler();
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equalsIgnoreCase(Utils.SendBroadcat)){
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                });
+            }
+        }
     }
 }

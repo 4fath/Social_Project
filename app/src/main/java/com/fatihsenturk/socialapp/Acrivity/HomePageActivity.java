@@ -32,6 +32,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.holder.StringHolder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.parse.ParseUser;
 
 import java.nio.BufferOverflowException;
 
@@ -81,10 +82,16 @@ public class HomePageActivity extends AppCompatActivity {
 
 //        Boolean isAdmin = ApplicationContext.loggedInUser.getBoolean("isAdmin");
 //        String userStatus = ApplicationContext.loggedInUser.getString("userStatus");
-        Boolean isAdmin = false;
-        String userStatus =Utils.gonulluUser;
-
-
+        Boolean isAdmin = ApplicationContext.isAdmin;
+        ParseUser cuurenUser = ApplicationContext.loggedInUser;
+        Object aBoolean = cuurenUser.get("isVolunteer");
+//        String hay = (String) cuurenUser.get("isVolunteer");
+        aBoolean.toString();
+//        String durum = cuurenUser.getString("isVolunteer");
+        aBoolean.equals(true);
+        Boolean testFlag = cuurenUser.getBoolean("isVolunteer");
+        Boolean testGlag2 = ApplicationContext.userType;
+        Boolean userStatus = ParseUser.getCurrentUser().getBoolean("isVolunteer");
 
         if (isAdmin){
 
@@ -198,12 +205,15 @@ public class HomePageActivity extends AppCompatActivity {
                                     fragmentTransactionForDrawerItem.commit();
                                     break;
                             }
+
+                            sendNotifyList();
+
                             return false;
                         }
                     })
                     .build();
 
-        }else if (userStatus.equalsIgnoreCase(Utils.gonulluUser)){
+        }else if (aBoolean.equals(true)){
 
             leftMenuDrawer = new DrawerBuilder()
                     .withActivity(this)
@@ -291,12 +301,15 @@ public class HomePageActivity extends AppCompatActivity {
                                     fragmentTransactionForDrawerItem.commit();
                                     break;
                             }
+                            sendNotifyList();
                             return false;
+
+
                         }
                     })
                     .build();
 
-        }else if (userStatus.equalsIgnoreCase(Utils.ihtiyacliUeer)){
+        }else {
 
             leftMenuDrawer = new DrawerBuilder()
                     .withActivity(this)
@@ -367,6 +380,8 @@ public class HomePageActivity extends AppCompatActivity {
                                     fragmentTransactionForDrawerItem.commit();
                                     break;
                             }
+
+                            sendNotifyList();
                             return false;
                         }
                     })
@@ -375,6 +390,14 @@ public class HomePageActivity extends AppCompatActivity {
             leftMenuDrawer.updateBadge(R.string.anasayfa_gonullu, new StringHolder("12"));
         }
     }
+
+
+    public void sendNotifyList() {
+        Intent sendModify = new Intent();
+        sendModify.setAction(Utils.SendBroadcat);
+        sendBroadcast(sendModify);
+    }
+
 
 //    private void populateLeftMenu(Drawer leftMenuDrawer) {
 //        Boolean isAdmin = ApplicationContext.loggedInUser.getBoolean("isAdmin");

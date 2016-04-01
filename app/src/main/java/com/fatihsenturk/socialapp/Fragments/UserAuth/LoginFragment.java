@@ -32,6 +32,9 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by TOSHIBA on 15.3.2016. Mart
  * Dont worry !
@@ -154,7 +157,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 if (e == null ){
                     // Yani basarili bir sekilde giris yapildi
 
-//                  This part for emaial verification , succesfull login
+                    ///////////////////////////////////////////
+//                  This part for e-mail verification, successfully login
 //                    Boolean isVerified = parseUser.getBoolean("emailVerified");
 //                    if (isVerified){
 //                        Intent goToHomePage = new Intent(getActivity(), HomePageActivity.class);
@@ -162,11 +166,23 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 //                    }else {
 //                        ParseUser.logOut();
 //                    }
+                    ////////////////////////////////////////////////
 
-                    ApplicationContext.userType = parseUser.getBoolean("isVolunteer");
-                    ApplicationContext.isAdmin = parseUser.getBoolean("isAdmin");
-                    ApplicationContext.loggedInUser = parseUser;
+//                    ApplicationContext. = parseUser.getBoolean("isVolunteer");
+//                    ApplicationContext.isAdmin = parseUser.getBoolean("isAdmin");
+//                    ApplicationContext.loggedInUser = parseUser;
 //
+//                    String dogru = (String)parseUser.get("myStringValue");
+//                    ArrayList b = (ArrayList)parseUser.get("phoneNumber1");
+//                    b.get(0);
+
+                    ApplicationContext applicationContext = (ApplicationContext) getActivity().getApplication();
+                    applicationContext.setLoggedInUser(parseUser);
+                    Boolean isAdmin = parseUser.getBoolean("isAdmin");
+                    applicationContext.setIsAdmin(isAdmin);
+                    Boolean userType = parseUser.getBoolean("userType");
+                    applicationContext.setUserType(userType);
+
                     Intent goToHomePage = new Intent(getActivity(), HomePageActivity.class);
                     startActivity(goToHomePage);
                 }else {

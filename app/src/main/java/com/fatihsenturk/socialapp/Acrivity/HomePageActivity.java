@@ -32,6 +32,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.holder.StringHolder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.parse.Parse;
 import com.parse.ParseUser;
 
 import java.nio.BufferOverflowException;
@@ -64,7 +65,6 @@ public class HomePageActivity extends AppCompatActivity {
 
             menu.setBackground(ContextCompat.getDrawable(this, R.drawable.menuicon));
 
-
             menu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -77,21 +77,24 @@ public class HomePageActivity extends AppCompatActivity {
             getSupportActionBar().show();
         }
 
-//
 //        populateLeftMenu(leftMenuDrawer);
-
 //        Boolean isAdmin = ApplicationContext.loggedInUser.getBoolean("isAdmin");
 //        String userStatus = ApplicationContext.loggedInUser.getString("userStatus");
-        Boolean isAdmin = ApplicationContext.isAdmin;
-        ParseUser cuurenUser = ApplicationContext.loggedInUser;
-        Object aBoolean = cuurenUser.get("isVolunteer");
+//        Boolean isAdmin = ApplicationContext.isAdmin;
+//        ParseUser cuurenUser = ApplicationContext.loggedInUser;
+//        Object aBoolean = cuurenUser.get("isVolunteer");
 //        String hay = (String) cuurenUser.get("isVolunteer");
-        aBoolean.toString();
+//        aBoolean.toString();
 //        String durum = cuurenUser.getString("isVolunteer");
-        aBoolean.equals(true);
-        Boolean testFlag = cuurenUser.getBoolean("isVolunteer");
-        Boolean testGlag2 = ApplicationContext.userType;
-        Boolean userStatus = ParseUser.getCurrentUser().getBoolean("isVolunteer");
+//        aBoolean.equals(true);
+//        Boolean testFlag = cuurenUser.getBoolean("isVolunteer");
+//        Boolean testGlag2 = ApplicationContext.userType;
+//        Boolean userStatus = ParseUser.getCurrentUser().getBoolean("isVolunteer");
+
+        ApplicationContext applicationContext = (ApplicationContext) getApplicationContext();
+        ParseUser currentUser = applicationContext.getLoggedInUser();
+        Boolean currentUserType = applicationContext.getUserType();
+        Boolean isAdmin = applicationContext.getIsAdmin();
 
         if (isAdmin){
 
@@ -213,7 +216,7 @@ public class HomePageActivity extends AppCompatActivity {
                     })
                     .build();
 
-        }else if (aBoolean.equals(true)){
+        }else if (currentUserType){
 
             leftMenuDrawer = new DrawerBuilder()
                     .withActivity(this)
@@ -399,6 +402,7 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
 
+    // TODO :
 //    private void populateLeftMenu(Drawer leftMenuDrawer) {
 //        Boolean isAdmin = ApplicationContext.loggedInUser.getBoolean("isAdmin");
 //        String userStatus = ApplicationContext.loggedInUser.getString("userStatus");
@@ -409,11 +413,6 @@ public class HomePageActivity extends AppCompatActivity {
 //            //populate left menu for volunteer
 //        }else {
 //            //populate left menu for the other users
-//
-//
-//
-//
-//
 //        }
 //
 //

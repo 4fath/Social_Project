@@ -31,11 +31,36 @@ public class ApplicationContext extends Application {
     private static ApplicationContext mInstance;
 
 //    public static String userStatus = Utils.ihtiyacliUeer;
-    public static ParseUser loggedInUser = null;
-
+    private ParseUser loggedInUser ;
     // Default
-    public static Boolean isAdmin = false;
-    public static Boolean userType ;
+
+    private Boolean isAdmin ;
+    private Boolean userType ;
+
+    public ParseUser getLoggedInUser() {
+        return loggedInUser;
+    }
+
+    public void setLoggedInUser(ParseUser loggedInUser) {
+        this.loggedInUser = loggedInUser;
+    }
+
+    public Boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    public Boolean getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Boolean userType) {
+        this.userType = userType;
+    }
+
 
     public static synchronized ApplicationContext getInstance() {
         return mInstance;

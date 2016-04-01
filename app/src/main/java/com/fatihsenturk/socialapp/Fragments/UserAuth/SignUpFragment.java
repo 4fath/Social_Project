@@ -14,15 +14,21 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fatihsenturk.socialapp.Model.CustomToast;
 import com.fatihsenturk.socialapp.MainActivity;
 import com.fatihsenturk.socialapp.R;
 import com.fatihsenturk.socialapp.Utils.Utils;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
+import java.util.List;
+import java.util.TooManyListenersException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -97,7 +103,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
 
     private void checkValidation() {
 
-        // Get all edittext texts
+        // Get all edit text
         String getFullName = fullName.getText().toString().trim();
         String getUsername = username.getText().toString().trim();
         String getEmailId = emailId.getText().toString().trim();
@@ -115,9 +121,9 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
                 || getConfirmPassword.length() == 0)
                 new CustomToast().Show_Toast(getActivity(),view, "Tüm alanların doldurulması zorunludur !");
         else if (!m.find())
-            new CustomToast().Show_Toast(getActivity(), view, "Your Email Id is Invalid.");
+            new CustomToast().Show_Toast(getActivity(), view, "Geçersiz email adresi lütfen control ediniz..");
         else if (!getConfirmPassword.equals(getPassword))
-            new CustomToast().Show_Toast(getActivity(), view, "Both password doesn't match.");
+            new CustomToast().Show_Toast(getActivity(), view, "Sifreler eslesmiyor");
         else if (!terms_conditions.isChecked())
             new CustomToast().Show_Toast(getActivity(), view, "Please select Terms and Conditions.");
         else {
@@ -127,7 +133,8 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    private void signUpToParse(String getFullName, String getUsername, String getEmailId, String getMobileNumber, String getPassword, Boolean userType) {
+    private void signUpToParse(String getFullName, String getUsername, String getEmailId, String getMobileNumber,
+                               String getPassword, Boolean userType) {
         ParseUser currentUser = new ParseUser();
 
         // Required fields
@@ -135,16 +142,45 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
         currentUser.setUsername(getUsername);
         currentUser.setPassword(getPassword);
 
-        // Custom fields
-        currentUser.add("fullName",getFullName);
-        currentUser.add("phoneNumber", getMobileNumber);
-        currentUser.add("isAdmin", false);
-        if (userType){
-            currentUser.add("isVolunteer", "yes");
-        }else{
-            currentUser.add("isVolunteer", "no");
-        }
+        // Custom fields PUT ile isler yuruyecek
+        currentUser.put("fullName",getFullName);
+        currentUser.put("phoneNumber", getMobileNumber);
+        currentUser.put("isAdmin", false);
+        currentUser.put("userType", userType);
 
+//        if (userType){
+//            currentUser.add("isVolunteer", "yes");
+//        }else{
+//            currentUser.add("isVolunteer", "no");
+//        }
+
+//        currentUser.add("test1", "test 1 add kullanildi");
+//        currentUser.put("test2", "test 2 put kullanildi");
+//
+//        currentUser.add("test 1 boolean", true);
+//        currentUser.put("test 2 boolean", true);
+//
+//        currentUser.put("myStringValue","heyheyput");
+//        currentUser.add("myStringValue","heyheyadd");
+//        final ParseObject myNewParseObject = new ParseObject("myNewParseObject");
+//
+//        // add olunca array olarak kayıt ediyor
+//        myNewParseObject.add("test1", "test 1 string");
+//        myNewParseObject.add("test2", true);
+//
+//        // put olunca doğru
+//        myNewParseObject.put("test3", "test 3 string");
+//        myNewParseObject.put("test4", true);
+//        myNewParseObject.saveInBackground(new SaveCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                if (e == null){
+//                    Toast.makeText(getActivity(), "obje kayit sirasinda hata OLMADI",Toast.LENGTH_LONG).show();
+//                    ParseQuery<ParseObject> parseObjectParseQuery = new ParseQuery<ParseObject>("myNewParseObject");
+//                    final String verbana = myNewParseObject.getObjectId();
+//                }
+//            }
+//        });
 //        if (userType){
 //            currentUser.put(Utils.userStatus, Utils.gonulluUser);
 //        }else {

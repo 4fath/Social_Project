@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#43a456">
+
+    <TextView
+        android:id="@+id/contact_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="000000"
+        android:gravity="center"
+        android:padding="14dp"
+        android:text="Place Holder" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#635f5f"
+        android:padding="16dp"
+        android:text="@string/dummy_text" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:background="#43a047">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:shadowColor="#757575"
+            android:text="İletişim yolları"
+            android:gravity="center"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

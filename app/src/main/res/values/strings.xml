@@ -154,4 +154,17 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
 
+
+    <string name="dummy_text">
+        "Lorem ipsum dolor sit amet,"
+        "consectetur adipiscing elit. Integer quis consectetur odio."
+        "Sed elementum viverra velit, euismod aliquet eros fermentum quis."
+        "Proin a nisl nisi. Mauris a tristique felis."
+        "Praesent tempor dui sit amet venenatis ultrices."
+        "Vestibulum bibendum porttitor imperdiet. Pellentesque eu"
+        "convallis ligula, ac ultricies velit. Aliquam erat volutpat."
+        "Mauris suscipit dui nunc, sed feugiat risus commodo in."
+        "Aliquam id viverra lacus. In id orci dolor."
+    </string>
+
 </resources>

@@ -1,17 +1,21 @@
 package com.fatihsenturk.socialapp.Fragments;
 
-import com.fatihsenturk.socialapp.Adapter.ContactAdapter;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import java.util.List;
+import com.fatihsenturk.socialapp.R;
 
 /**
  * Created by TOSHIBA on 19.3.2016. Mart
  * Dont worry !
  */
 public class ContactFragment extends BaseFragment {
-
-    private final static String ARG_POSITION = "position";
-    private List dashboardItemList;
-    private ContactAdapter adapter;
-
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.contact, container, false);
+    }
 }
